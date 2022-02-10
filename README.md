@@ -5,6 +5,6 @@ Rubik's cube recognition in real time. Show step by step solution on a 3d model.
 
 *click on the picture to see demo*
 
-##Example
+## Example
 ![Alt text](https://github.com/Sheshkon/CubeRecognition/blob/main/screenshots/image.png?raw=true "Optional Title")
 
