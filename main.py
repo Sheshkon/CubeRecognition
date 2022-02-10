@@ -74,7 +74,7 @@ def identify_side_colors(mask_list):
             for j in range(3):
                 frame_part = mask_list[k][i * 80:(i + 1) * 80,
                              j * 80: (j + 1) * 80]
-                if (np.count_nonzero(frame_part[10:70, 10:70])) >= 700:
+                if (np.count_nonzero(frame_part[10:70, 10:70])) >= 600:
                     # if (np.count_nonzero(frame_part[25:55, 25:55])) >= 350:
                     side[i][j] = k + 1
     return side
@@ -105,7 +105,7 @@ def check_side(frame_with_rec, scramble_image, sides_list, side, width, height, 
     if np.count_nonzero(side) == 9:
         cv2.rectangle(frame_with_rec, (x-120, y-120), (x+120, y+120), (0, 255, 255), 5)
 
-        if counter == 50:
+        if counter == 30:
             cv2.rectangle(frame_with_rec, (x-120, y-120), (x+120, y+120), (0, 255, 0), 5)
             cv2.waitKey(500)
             is_scanned = True
@@ -176,7 +176,7 @@ def recognize_cube(cap):
             if len(sides_list) == 6:
                 return sides_list, scramble_image
 
-            if counter > 50:
+            if counter > 30:
                 break
 
 
