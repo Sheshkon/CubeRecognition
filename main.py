@@ -171,7 +171,7 @@ def recognize_cube(cap):
 
             cv2.imshow('result', result)
             cv2.imshow('frame', frame_with_rec)
-            cv2.imshow('mask', mask)
+            # cv2.imshow('mask', mask)
 
             if len(sides_list) == 6:
                 return sides_list, scramble_image
@@ -191,7 +191,7 @@ def create_scramble(kosiemba_positions, sides_list):
 
 
 def destroy_windows():
-    windows = ('mask', 'frame', 'result')
+    windows = ('frame', 'result')
     for window in windows:
         cv2.destroyWindow(window)
 
@@ -209,6 +209,9 @@ def show_solution(scramble_image, solution):
 
 def main():
     cap = cv2.VideoCapture(0)
+
+    if not cap.isOpened():
+        raise Exception("Failed to open the camera.")
 
     sides_list, scramble_image = recognize_cube(cap)
     cap.release()
